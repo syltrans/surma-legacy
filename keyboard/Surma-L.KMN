@@ -1,0 +1,144 @@
+c Surma-L.Kmn version 1.0 2016-Mar-03
+c Adapted from Syloti7.kmn sps
+c Move hoshonto to d244, which also requires using d244 for forming conjuncts
+c Following Mnemonic keyboard layout
+c Should work with Keyman Desktop ver 7 or later
+store(&VERSION) '7.0'
+store(&NAME) 'Syloti-Nagri'
+store(&COPYRIGHT) 'Copyright © Sylheti Translation And Research 2003-2016'
+store(&MESSAGE) 'This keyboard may be freely copied and used.'
+store(&ETHNOLOGUECODE) 'syl'
+store(&BITMAP) 'Surma-L.bmp'
+store(&MnemonicLayout) "1" 
+store(&VISUALKEYBOARD) 'Surma-L.kvk'
+
+begin ANSI > use(main)
+begin Unicode > use(main)
+
+
+group(Main) using keys
+
+c Store all roman letters used in main character set
+store(MRom) "ABCDEGIJKLNOPRSTUVXZ" "abcdeghijklmnoprstuvxyz"
+
+c Store all siloti replacement characters in main character set
+store(MSil) d065 d097 d076 d086 d068 d073 d066 d078 d071 d117 d074 d069 d089 d101 d115 d084 d067 d114 d080 d082 \
+d104 d090 d075 d085 d109 d072 d103 d105 d077 d070 d100 d098 d087 d244 d088 d099 d102 d083 d106 d116 d079 d112 d081 \
+
+
+c Store any unused roman characters
+store(unused) "FHMQWYfw"
+
+c Store d's - d, dd, nd, bd - which use special u symbol (d108)
+store(detc) d085 d208 d217 d227 d226
+
+c Store characters using alternative ukar (d107)
+store(altukar) d078 d080 d081 d082 d089 d101 d215 d237
+
+c Store characters using alternative ekar (d111)
+store(altekar1) d081 d082 d089 d101 d194 d214 d222 
+
+c Store characters using second alternative ekar (d110)
+store(altekar2) d215 d217 d226 d227 d237
+
+
+ + any(MRom) > index(MSil,1)
+
+c conjuncts
+d070 d244 + "k" > d192		c kk
+d070 d244 + "K" > d193		c kkh
+d070 d244 + "x" > d194		c kT
+d070 d244 + "t" > d195		c kt
+d070 d244 + "r" > d196		c kr
+d070 d244 + "l" > d197		c kl
+d070 d244 + "s" > d198		c ksh
+d071 d244 + "t" > d199		c kht
+d071 d244 + "b" > d200		c khb
+d072 d244 + "n" > d201		c gn
+d075 d244 + "c" > d243		c chch
+d075 d244 + "C" > d203		c chchh
+d076 d244 + "T" > d202		c chhth
+d077 d244 + "j" > d204		c jj
+d083 d244 + "t" > d205		c tt
+d083 d244 + "T" > d206		c tth
+d083 d244 + "r" > d207		c tr
+d085 d244 + "d" > d208		c dd
+d087 d244 + "k" > d209		c nk
+d087 d244 + "g" > d210		c ng
+d087 d244 + "c" > d211		c nch
+d087 d244 + "C" > d212		c nchh
+d087 d244 + "j" > d213		c nj
+d087 d244 + "x" > d214		c nT
+d087 d244 + "z" > d215		c nD
+d087 d244 + "t" > d216		c nt
+d087 d244 + "d" > d217		c nd
+d087 d244 + "D" > d218		c ndh
+d087 d244 + "n" > d219		c nn
+d087 d244 + "s" > d220		c nsh
+d088 d244 + "C" > d221		c pchh
+d088 d244 + "x" > d222		c pT
+d088 d244 + "t" > d223		c pt
+d088 d244 + "p" > d224		c pp
+d088 d244 + "s" > d225		c psh
+d089 d244 + "C" > d226		c phchh
+d090 d244 + "d" > d227		c bd
+d090 d244 + "b" > d228		c bb
+d098 d244 + "p" > d229		c mp
+d098 d244 + "b" > d230		c mb
+d098 d244 + "m" > d231		c mm
+d100 d244 + "l" > d232		c ll
+d102 d244 + "k" > d233		c shk
+d102 d244 + "c" > d234		c shch
+d102 d244 + "C" > d235		c shchh
+d102 d244 + "x" > d236		c shT
+d102 d244 + "X" > d237		c shTh
+d102 d244 + "t" > d238		c sht
+d102 d244 + "T" > d239		c shth
+d102 d244 + "b" > d240		c shb
+d244 + "t" > d114		c  -t
+d244 + "s" > d115		c  -sh
+d244 + "r" > d116		c  -r
+d244 + "l" > d117		c  -l
+
+c alternative punctuation
+
+c + "o" > d244			c Siloti Nagri hoshonto, also used for making conjuncts
++ "^" > d244			c circumflex also produces hoshonto
++ "." > d118			c Siloti Nagri full stop
+d118 + "." > d046		c Roman full stop
++ "q" > d119			c Siloti Nagri single circle stanza
+d119 + "q" > d120		c Siloti Nagri double circle stanza
+d120 + "q" > d121		c Siloti Nagri triple circle stanza
+d244 + "o" > d038		c Bengali hoshonto
+d063 + "?" > d126		c Siloti Nagri question mark
+"!" + "!" > d122		c Bengali full stop
+d122 + "!" > d124		c Bengali stanza
+
+c alternative vowel symbols
+
+any(detc) + "u" > context d108
+any(altukar) + "u" > context d107
+any(altekar1) + "e" > context d111
+any(altekar2) + "e" > context d110 
+
+
+c onushor positioning problems solved
+c nb apart from solving visual positioning problems,
+c this also ensures that wherever in the syllable the onushor is typed,
+c (and whatever the order appears to be) it will always be ordered
+c AFTER THE VOWEL
+
+d074 + "a" > d104 d113
+d105 + "N" > d105 d113
+d074 + "i" > d105 d113
+any(detc) d074 + "u" > index(detc,1) d108 d074
+any(altukar) d074 + "u" > index(altukar,1) d107 d074
+d074 + "u" > d106 d074
+any(altekar1) d074 + "e" > index(altekar1,1) d111 d074
+any(altekar2) d074 + "e" > index(altekar2,1) d110 d074
+d109 + "N" > d111 d074
+d074 + "e" > d111 d074
+
+
+
++ any(unused) > context beep
