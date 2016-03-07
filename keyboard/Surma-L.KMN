@@ -1,12 +1,13 @@
-c Surma-L.Kmn version 1.0 2016-Mar-03
+c Surma-L.Kmn version 1.0 2016-Mar-07
 c Adapted from Syloti7.kmn sps
 c Move hoshonto to d244, which also requires using d244 for forming conjuncts
 c Following Mnemonic keyboard layout
 c Should work with Keyman Desktop ver 7 or later
+
 store(&VERSION) '7.0'
 store(&NAME) 'Syloti-Nagri'
 store(&COPYRIGHT) 'Copyright © Sylheti Translation And Research 2003-2016'
-store(&MESSAGE) 'This keyboard may be freely copied and used.'
+store(&MESSAGE) 'This keyboard may be freely copied and used. It is designed to be used with the Surma L font.'
 store(&ETHNOLOGUECODE) 'syl'
 store(&BITMAP) 'Surma-L.bmp'
 store(&MnemonicLayout) "1" 
@@ -19,15 +20,15 @@ begin Unicode > use(main)
 group(Main) using keys
 
 c Store all roman letters used in main character set
-store(MRom) "ABCDEGIJKLNOPRSTUVXZ" "abcdeghijklmnoprstuvxyz"
+store(MRom) "ABCDEGIJKLNOPRSTUVXZ" "abcdeghijklmnprstuvxyz"
 
 c Store all siloti replacement characters in main character set
 store(MSil) d065 d097 d076 d086 d068 d073 d066 d078 d071 d117 d074 d069 d089 d101 d115 d084 d067 d114 d080 d082 \
-d104 d090 d075 d085 d109 d072 d103 d105 d077 d070 d100 d098 d087 d244 d088 d099 d102 d083 d106 d116 d079 d112 d081 \
+d104 d090 d075 d085 d109 d072 d103 d105 d077 d070 d100 d098 d087 d088 d099 d102 d083 d106 d116 d079 d112 d081 \
 
 
 c Store any unused roman characters
-store(unused) "FHMQWYfw"
+store(unused) "FHMQWYfw"	c o and q are not in (MRom) but are defined in 'Alternative Punctuation' section below
 
 c Store d's - d, dd, nd, bd - which use special u symbol (d108)
 store(detc) d085 d208 d217 d227 d226
@@ -102,17 +103,18 @@ d244 + "l" > d117		c  -l
 
 c alternative punctuation
 
-c + "o" > d244			c Siloti Nagri hoshonto, also used for making conjuncts
-+ "^" > d244			c circumflex also produces hoshonto
++ "o" > d244			c Siloti Nagri hoshonto, also used for making conjuncts
+d244 + "o" > d038		c Double o produces Bengali hoshonto
++ "^" > d244			c circumflex is alternate way of producing hoshonto
+d244 + "^" > d038		c Double ^ produces Bengali hoshonto
 + "." > d118			c Siloti Nagri full stop
-d118 + "." > d046		c Roman full stop
+d118 + "." > d046		c Double . produces Roman full stop
 + "q" > d119			c Siloti Nagri single circle stanza
-d119 + "q" > d120		c Siloti Nagri double circle stanza
-d120 + "q" > d121		c Siloti Nagri triple circle stanza
-d244 + "o" > d038		c Bengali hoshonto
-d063 + "?" > d126		c Siloti Nagri question mark
-"!" + "!" > d122		c Bengali full stop
-d122 + "!" > d124		c Bengali stanza
+d119 + "q" > d120		c Double q produces Siloti Nagri double circle stanza
+d120 + "q" > d121		c Triple q produces Siloti Nagri triple circle stanza
+d063 + "?" > d126		c Double q produces Siloti Nagri question mark
+"!" + "!" > d122		c Double ! produces Bengali full stop
+d122 + "!" > d124		c Triple ! produces Bengali stanza
 
 c alternative vowel symbols
 
