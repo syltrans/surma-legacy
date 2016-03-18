@@ -1,11 +1,11 @@
-c Surma-L.Kmn version 1.0 2016-Mar-07
+c Surma-L.Kmn version 1.0 2016-Mar-04
 c Adapted from Syloti7.kmn sps
 c Move hoshonto to d244, which also requires using d244 for forming conjuncts
-c Following Mnemonic keyboard layout
 c Should work with Keyman Desktop ver 7 or later
+c 2016-Mar-09: Version 2.0 When compiling with Keyman, I'm callling this Version 2.0, to align with the version of the font.
 
 store(&VERSION) '7.0'
-store(&NAME) 'Syloti-Nagri'
+store(&NAME) 'Siloti-Nagri'
 store(&COPYRIGHT) 'Copyright © Sylheti Translation And Research 2003-2016'
 store(&MESSAGE) 'This keyboard may be freely copied and used. It is designed to be used with the Surma L font.'
 store(&ETHNOLOGUECODE) 'syl'
@@ -100,6 +100,7 @@ d244 + "t" > d114		c  -t
 d244 + "s" > d115		c  -sh
 d244 + "r" > d116		c  -r
 d244 + "l" > d117		c  -l
+d244 + "v" > d116		c alternate way of keying -r (sps)
 
 c alternative punctuation
 
@@ -115,6 +116,10 @@ d120 + "q" > d121		c Triple q produces Siloti Nagri triple circle stanza
 d063 + "?" > d126		c Double q produces Siloti Nagri question mark
 "!" + "!" > d122		c Double ! produces Bengali full stop
 d122 + "!" > d124		c Triple ! produces Bengali stanza
++ "|" > d122			c Vertical bar also produces Bengali full stop
+d122 + "|" > d124		c Double vertical bar produces Bengali stanza
++ "\" > d092			c d092 is backslash, but it doesn't work if we leave this line out
+
 
 c alternative vowel symbols
 
