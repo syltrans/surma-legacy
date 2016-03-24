@@ -19,6 +19,9 @@ ChangeLog
 ---------
 (This should list both major and minor changes, most recent first.)
 
+24 Mar 2016 Surma L version 2.004
+- Removed spurious name table metadata
+
 23 Mar 2016 Surma L version 2.002
 - Moved Taka to xA5 (Yen)
 - Added dollar sign
