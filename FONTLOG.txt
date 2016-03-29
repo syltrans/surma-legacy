@@ -19,6 +19,9 @@ ChangeLog
 ---------
 (This should list both major and minor changes, most recent first.)
 
+29 Mar 2016 Surma L version 2.006
+- Fixed corrupted line metrics
+
 24 Mar 2016 Surma L version 2.004
 - Removed spurious name table metadata
 
